@@ -1,0 +1,16 @@
+version: '2'
+services:
+  workspace:
+      build:
+        context: ./
+        args:
+          - TZ=UTC
+          - INSTALL_XDEBUG=true
+        dockerfile: workspace.docker
+      tty: true
+      volumes_from:
+        - src
+  src:
+      image: tianon/true
+      volumes:
+        - ./:/var/www/authclient

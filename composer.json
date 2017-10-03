@@ -1,0 +1,25 @@
+{
+    "name": "jincor/auth-php-client",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=7",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.7",
+        "codeception/codeception": "^2.3",
+        "squizlabs/php_codesniffer": "2.*"
+    },
+    "authors": [
+        {
+            "name": "aleserche",
+            "email": "aleserche@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "JincorTech\\AuthClient\\": "src/"
+        }
+    }
+}
