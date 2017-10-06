@@ -1,22 +1,30 @@
 {
     "name": "jincor/auth-php-client",
     "type": "library",
+    "description": "A PHP library which encapsulates interaction with Jincor Auth",
     "license": "MIT",
-    "require": {
-        "php": ">=7",
-        "guzzlehttp/guzzle": "^6.3"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~5.7",
-        "codeception/codeception": "^2.3",
-        "squizlabs/php_codesniffer": "2.*"
-    },
+    "keywords": ["library", "client", "sdk", "auth", "jwt"],
+    "homepage": "https://github.com/JincorTech/auth-php-client",
     "authors": [
         {
             "name": "aleserche",
-            "email": "aleserche@gmail.com"
+            "homepage": "https://github.com/Aleserche"
+        },
+        {
+            "name": "Jincor Team",
+            "email": "tech@jincor.com",
+            "homepage": "https://jincor.com"
         }
     ],
+    "require": {
+        "php": ">=7.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "codeception/codeception": "^2.3",
+        "squizlabs/php_codesniffer": "^2.0"
+    },
     "autoload": {
         "psr-4": {
             "JincorTech\\AuthClient\\": "src/"
