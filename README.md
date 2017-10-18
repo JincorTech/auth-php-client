@@ -1,4 +1,6 @@
-Auth client
+# Auth client
+![](https://travis-ci.org/JincorTech/auth-php-client.svg?branch=master)
+![](https://styleci.io/repos/104511974/shield)
 ===========
 
 This is a client library which encapsulates interaction with [Jincor Auth](https://github.com/JincorTech/backend-auth). With its help you can:

@@ -3,9 +3,7 @@
 namespace JincorTech\AuthClient;
 
 /**
- * Interface AuthServiceInterface
- *
- * @package JincorTech\AuthClient
+ * Interface AuthServiceInterface.
  */
 interface AuthServiceInterface
 {
@@ -33,7 +31,7 @@ interface AuthServiceInterface
      * @param string $tenantToken
      * @void
      */
-    public function logoutTenant(string $tenantToken): void;
+    public function logoutTenant(string $tenantToken);
 
     /**
      * @param array  $data
@@ -61,12 +59,12 @@ interface AuthServiceInterface
      * @param string $tenantToken
      * @void
      */
-    public function logoutUser(string $userToken, string $tenantToken): void;
+    public function logoutUser(string $userToken, string $tenantToken);
 
     /**
      * @param string $login
      * @param string $tenantToken
      * @void
      */
-    public function deleteUser(string $login, string $tenantToken): void;
+    public function deleteUser(string $login, string $tenantToken);
 }

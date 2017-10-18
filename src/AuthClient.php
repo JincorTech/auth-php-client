@@ -9,14 +9,12 @@ use JincorTech\AuthClient\Exception\AccessTokenNotFound;
 use JincorTech\AuthClient\Exception\DecodedSectionNotFound;
 
 /**
- * Class AuthClient
- *
- * @package JincorTech\AuthClient
+ * Class AuthClient.
  */
 class AuthClient implements AuthServiceInterface
 {
     /**
-     * Http Client
+     * Http Client.
      *
      * @var ClientInterface
      */
@@ -46,7 +44,7 @@ class AuthClient implements AuthServiceInterface
                 'json' => [
                     'email' => $email,
                     'password' => $password,
-                ]
+                ],
             ]
         );
 
@@ -68,7 +66,7 @@ class AuthClient implements AuthServiceInterface
                 'json' => [
                     'email' => $email,
                     'password' => $password,
-                ]
+                ],
             ]
         );
 
@@ -95,16 +93,17 @@ class AuthClient implements AuthServiceInterface
             'POST', '/tenant/verify', [
                 'json' => [
                     'token' => $tenantToken,
-                ]
+                ],
             ]
         );
 
         $responseData = json_decode($response->getBody()->getContents(), true);
-        if (!array_key_exists('decoded', $responseData)) {
+        if (! array_key_exists('decoded', $responseData)) {
             throw new DecodedSectionNotFound('Decoded section not found');
         }
 
         $params = $responseData['decoded'];
+
         return new TenantTokenVerificationResult($params);
     }
 
@@ -114,13 +113,13 @@ class AuthClient implements AuthServiceInterface
      * @throws GuzzleException
      * @throws ServerException
      */
-    public function logoutTenant(string $tenantToken): void
+    public function logoutTenant(string $tenantToken)
     {
         $this->httpClient->request(
             'POST', '/tenant/logout', [
                 'json' => [
                     'token' => $tenantToken,
-                ]
+                ],
             ]
         );
     }
@@ -147,8 +146,8 @@ class AuthClient implements AuthServiceInterface
             [
                 'json' => $data,
                 'headers' => [
-                    'Authorization' => 'Bearer ' . $tenantToken,
-                ]
+                    'Authorization' => 'Bearer '.$tenantToken,
+                ],
             ]
         );
 
@@ -176,8 +175,8 @@ class AuthClient implements AuthServiceInterface
             [
                 'json' => $data,
                 'headers' => [
-                    'Authorization' => 'Bearer ' . $tenantToken,
-                ]
+                    'Authorization' => 'Bearer '.$tenantToken,
+                ],
             ]
         );
 
@@ -210,17 +209,18 @@ class AuthClient implements AuthServiceInterface
                     'token' => $userToken,
                 ],
                 'headers' => [
-                    'Authorization' => 'Bearer ' . $tenantToken,
-                ]
+                    'Authorization' => 'Bearer '.$tenantToken,
+                ],
             ]
         );
 
         $responseData = json_decode($response->getBody()->getContents(), true);
-        if (!array_key_exists('decoded', $responseData)) {
+        if (! array_key_exists('decoded', $responseData)) {
             throw new DecodedSectionNotFound('Decoded section not found.');
         }
 
         $params = $responseData['decoded'];
+
         return new UserTokenVerificationResult($params);
     }
 
@@ -231,7 +231,7 @@ class AuthClient implements AuthServiceInterface
      * @throws GuzzleException
      * @throws ServerException
      */
-    public function logoutUser(string $userToken, string $tenantToken): void
+    public function logoutUser(string $userToken, string $tenantToken)
     {
         $this->httpClient->request(
             'POST',
@@ -241,8 +241,8 @@ class AuthClient implements AuthServiceInterface
                     'token' => $userToken,
                 ],
                 'headers' => [
-                    'Authorization' => 'Bearer ' . $tenantToken,
-                ]
+                    'Authorization' => 'Bearer '.$tenantToken,
+                ],
             ]
         );
     }
@@ -254,15 +254,15 @@ class AuthClient implements AuthServiceInterface
      * @throws GuzzleException
      * @throws ServerException
      */
-    public function deleteUser(string $login, string $tenantToken): void
+    public function deleteUser(string $login, string $tenantToken)
     {
         $this->httpClient->request(
             'DELETE',
-            '/user/' . $login,
+            '/user/'.$login,
             [
                 'headers' => [
-                    'Authorization' => 'Bearer ' . $tenantToken,
-                ]
+                    'Authorization' => 'Bearer '.$tenantToken,
+                ],
             ]
         );
     }

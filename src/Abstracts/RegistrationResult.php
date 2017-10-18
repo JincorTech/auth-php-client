@@ -1,13 +1,12 @@
 <?php
 
 namespace JincorTech\AuthClient\Abstracts;
-use \InvalidArgumentException;
+
+use InvalidArgumentException;
 use JincorTech\AuthClient\Traits\ValidateParams;
 
 /**
- * Class RegistrationResult
- *
- * @package JincorTech\AuthClient\Abstracts
+ * Class RegistrationResult.
  */
 abstract class RegistrationResult
 {
@@ -85,7 +84,7 @@ abstract class RegistrationResult
             throw new InvalidArgumentException('Email value can not be empty');
         }
 
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new InvalidArgumentException('Invalid Email address');
         }
 

@@ -2,13 +2,11 @@
 
 namespace JincorTech\AuthClient;
 
-use \InvalidArgumentException;
+use InvalidArgumentException;
 use JincorTech\AuthClient\Abstracts\RegistrationResult;
 
 /**
- * Class UserRegistrationResult
- *
- * @package JincorTech\AuthClient
+ * Class UserRegistrationResult.
  */
 class UserRegistrationResult extends RegistrationResult
 {
