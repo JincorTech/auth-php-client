@@ -1,6 +1,7 @@
 # Auth client
 
 ![](https://travis-ci.org/JincorTech/auth-php-client.svg?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JincorTech/auth-php-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JincorTech/auth-php-client/?branch=master)
 ![](https://styleci.io/repos/104511974/shield)
 ===========
 
