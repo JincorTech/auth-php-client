@@ -114,7 +114,7 @@ class AuthClient implements AuthServiceInterface
      * @throws GuzzleException
      * @throws ServerException
      */
-    public function logoutTenant(string $tenantToken): void
+    public function logoutTenant(string $tenantToken)
     {
         $this->httpClient->request(
             'POST', '/tenant/logout', [
@@ -231,7 +231,7 @@ class AuthClient implements AuthServiceInterface
      * @throws GuzzleException
      * @throws ServerException
      */
-    public function logoutUser(string $userToken, string $tenantToken): void
+    public function logoutUser(string $userToken, string $tenantToken)
     {
         $this->httpClient->request(
             'POST',
@@ -254,7 +254,7 @@ class AuthClient implements AuthServiceInterface
      * @throws GuzzleException
      * @throws ServerException
      */
-    public function deleteUser(string $login, string $tenantToken): void
+    public function deleteUser(string $login, string $tenantToken)
     {
         $this->httpClient->request(
             'DELETE',
