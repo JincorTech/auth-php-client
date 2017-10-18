@@ -1,4 +1,4 @@
-#Auth client
+# Auth client
 
 ![](https://travis-ci.org/JincorTech/auth-php-client.svg?branch=master)
 ![](https://styleci.io/repos/104511974/shield)
