@@ -11,5 +11,5 @@ before_install:
   - docker-compose ps
 
 script:
-  - docker-compose exec workspace composer install
+  - docker-compose run --rm workspace bash -c "composer install"
   - docker-compose run --rm workspace bash -c "./vendor/bin/codecept run"
