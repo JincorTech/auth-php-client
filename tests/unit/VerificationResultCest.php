@@ -1,7 +1,7 @@
 <?php
 
-use JincorTech\AuthClient\TenantTokenVerificationResult;
 use JincorTech\AuthClient\UserTokenVerificationResult;
+use JincorTech\AuthClient\TenantTokenVerificationResult;
 
 class VerificationResultCest
 {
@@ -21,7 +21,7 @@ class VerificationResultCest
             'jti' => 'jti-uuid',
             'iat' => 123456789,
             'aud' => 'jincor.com',
-            'isTenant' => true
+            'isTenant' => true,
         ];
 
         $tenantTokenVerificationResult = new TenantTokenVerificationResult($params);
@@ -42,7 +42,7 @@ class VerificationResultCest
             'jti' => 'jti-uuid',
             'iat' => 123456789,
             'aud' => 'jincor.com',
-            'isTenant' => true
+            'isTenant' => true,
         ];
 
         $checkList = [
@@ -75,8 +75,8 @@ class VerificationResultCest
                 'create' => true,
                 'read' => true,
                 'update' => true,
-                'delete' => false
-            ]
+                'delete' => false,
+            ],
         ]);
 
         $params = [
@@ -88,7 +88,7 @@ class VerificationResultCest
             'deviceId' => 'dev-123',
             'sub' => 'sub-123',
             'exp' => 12345678,
-            'scope' => $scope
+            'scope' => $scope,
         ];
 
         $userTokenVerificationResult = new UserTokenVerificationResult($params);

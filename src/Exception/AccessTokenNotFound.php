@@ -2,10 +2,10 @@
 
 namespace JincorTech\AuthClient\Exception;
 
-use \Exception;
+use Exception;
 
 /**
- * Class NotFoundAccessToken
+ * Class NotFoundAccessToken.
  */
 class AccessTokenNotFound extends Exception
 {

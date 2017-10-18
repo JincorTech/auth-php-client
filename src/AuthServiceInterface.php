@@ -3,9 +3,7 @@
 namespace JincorTech\AuthClient;
 
 /**
- * Interface AuthServiceInterface
- *
- * @package JincorTech\AuthClient
+ * Interface AuthServiceInterface.
  */
 interface AuthServiceInterface
 {

@@ -5,9 +5,7 @@ namespace JincorTech\AuthClient;
 use JincorTech\AuthClient\Abstracts\VerificationResult;
 
 /**
- * Class TenantTokenVerificationResult
- *
- * @package JincorTech\AuthClient
+ * Class TenantTokenVerificationResult.
  */
 class TenantTokenVerificationResult extends VerificationResult
 {

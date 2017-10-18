@@ -4,11 +4,8 @@ namespace JincorTech\AuthClient\Traits;
 
 use InvalidArgumentException;
 
-
 /**
- * Trait ValidateParams
- *
- * @package JincorTech\AuthClient\Traits
+ * Trait ValidateParams.
  */
 trait ValidateParams
 {
@@ -19,7 +16,7 @@ trait ValidateParams
     protected function validateParams(array $params, array $requiredKeys)
     {
         foreach ($requiredKeys as $key) {
-            if (!isset($params[$key])) {
+            if (! isset($params[$key])) {
                 throw new InvalidArgumentException(sprintf('Required key: %s is not specified', $key));
             }
         }

@@ -2,10 +2,10 @@
 
 namespace JincorTech\AuthClient\Exception;
 
-use \Exception;
+use Exception;
 
 /**
- * Class NotFoundDecodedSection
+ * Class NotFoundDecodedSection.
  */
 class DecodedSectionNotFound extends Exception
 {
