@@ -12,4 +12,4 @@ before_install:
 
 script:
   - docker-compose exec workspace composer install
-  - docker-compose run --rm workspace ./vendor/bin/codecept run
+  - docker-compose run --rm workspace ./vendor/bin/codecept run; echo $?
