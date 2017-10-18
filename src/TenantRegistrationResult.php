@@ -5,9 +5,7 @@ namespace JincorTech\AuthClient;
 use JincorTech\AuthClient\Abstracts\RegistrationResult;
 
 /**
- * Class TenantRegistrationResult
- *
- * @package JincorTech\AuthClient
+ * Class TenantRegistrationResult.
  */
 class TenantRegistrationResult extends RegistrationResult
 {

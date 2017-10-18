@@ -2,13 +2,11 @@
 
 namespace JincorTech\AuthClient;
 
-use \InvalidArgumentException;
+use InvalidArgumentException;
 use JincorTech\AuthClient\Abstracts\VerificationResult;
 
 /**
- * Class UserTokenVerificationResult
- *
- * @package JincorTech\AuthClient
+ * Class UserTokenVerificationResult.
  */
 class UserTokenVerificationResult extends VerificationResult
 {

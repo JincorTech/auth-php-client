@@ -1,13 +1,12 @@
 <?php
 
 namespace JincorTech\AuthClient\Abstracts;
-use \InvalidArgumentException;
+
+use InvalidArgumentException;
 use JincorTech\AuthClient\Traits\ValidateParams;
 
 /**
- * Class VerificationResult
- *
- * @package JincorTech\AuthClient\Abstracts
+ * Class VerificationResult.
  */
 abstract class VerificationResult
 {
@@ -29,7 +28,7 @@ abstract class VerificationResult
     private $jti;
 
     /**
-     * @var integer
+     * @var int
      */
     private $iat;
 
