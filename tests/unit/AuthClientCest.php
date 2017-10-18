@@ -1,20 +1,20 @@
 <?php
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Exception\ServerException;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
+use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Handler\MockHandler;
 use JincorTech\AuthClient\AuthClient;
-use JincorTech\AuthClient\Exception\AccessTokenNotFound;
-use JincorTech\AuthClient\Exception\DecodedSectionNotFound;
-use JincorTech\AuthClient\TenantRegistrationResult;
-use JincorTech\AuthClient\TenantTokenVerificationResult;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\ServerException;
 use JincorTech\AuthClient\UserRegistrationResult;
+use JincorTech\AuthClient\TenantRegistrationResult;
 use JincorTech\AuthClient\UserTokenVerificationResult;
+use JincorTech\AuthClient\Exception\AccessTokenNotFound;
+use JincorTech\AuthClient\TenantTokenVerificationResult;
+use JincorTech\AuthClient\Exception\DecodedSectionNotFound;
 
 class AuthClientCest
 {
@@ -64,7 +64,7 @@ class AuthClientCest
         ]);
         $requestBody = json_encode([
             'email' => 'test@test22.com',
-            'password' => 'Password1'
+            'password' => 'Password1',
         ]);
 
         $this->addResponseToHandler($responseBody);
@@ -100,7 +100,7 @@ class AuthClientCest
         ]);
         $requestBody = json_encode([
             'email' => 'test@test22.com',
-            'password' => 'Password1'
+            'password' => 'Password1',
         ]);
 
         $this->addResponseToHandler($responseBody);
@@ -116,7 +116,7 @@ class AuthClientCest
         $responseBody = json_encode([]);
         $requestBody = json_encode([
             'email' => 'test@test22.com',
-            'password' => 'Password1'
+            'password' => 'Password1',
         ]);
 
         $this->addResponseToHandler($responseBody);
@@ -132,17 +132,17 @@ class AuthClientCest
     public function testVerifyTenantToken(UnitTester $I)
     {
         $responseBody = json_encode([
-            "decoded" => [
-                "id" => "uuid",
-                "login" => "tenant:test@test22.com",
-                "jti" => "69c29215-1951-47f5-8b23-e5b8deb109441506351136272",
-                "iat" => 1506351136272,
-                "aud" => "jincor.com",
-                "isTenant" => true
-            ]
+            'decoded' => [
+                'id' => 'uuid',
+                'login' => 'tenant:test@test22.com',
+                'jti' => '69c29215-1951-47f5-8b23-e5b8deb109441506351136272',
+                'iat' => 1506351136272,
+                'aud' => 'jincor.com',
+                'isTenant' => true,
+            ],
         ]);
         $requestBody = json_encode([
-            'token' => 'jwt_token'
+            'token' => 'jwt_token',
         ]);
 
         $this->addResponseToHandler($responseBody);
@@ -164,7 +164,7 @@ class AuthClientCest
     {
         $responseBody = json_encode([]);
         $requestBody = json_encode([
-            'token' => 'jwt_token'
+            'token' => 'jwt_token',
         ]);
 
         $this->addResponseToHandler($responseBody);
@@ -172,7 +172,6 @@ class AuthClientCest
         $I->expectException(DecodedSectionNotFound::class, function () use ($I) {
             $I->assertTrue($this->authClient->verifyTenantToken('jwt_token'));
         });
-
 
         $request = $this->getLastRequest();
         $this->assertRequest($request, 'POST', '/tenant/verify', $requestBody, $I);
@@ -184,7 +183,7 @@ class AuthClientCest
             'result' => 1,
         ]);
         $requestBody = json_encode([
-            'token' => 'jwt_token'
+            'token' => 'jwt_token',
         ]);
 
         $this->addResponseToHandler($responseBody);
@@ -196,17 +195,17 @@ class AuthClientCest
     public function testCreateUser(UnitTester $I)
     {
         $scope = json_encode([
-            "admin",
-            "writer",
-            "root"
+            'admin',
+            'writer',
+            'root',
         ]);
 
         $userData = [
-            "email" => "empl_1@test22.com",
-            "password" => "Password1",
-            "login" => "empl_1",
-            "sub" => "123",
-            "scope" => $scope
+            'email' => 'empl_1@test22.com',
+            'password' => 'Password1',
+            'login' => 'empl_1',
+            'sub' => '123',
+            'scope' => $scope,
         ];
         $responseBody = json_encode([
             'id' => 'uuid',
@@ -214,7 +213,7 @@ class AuthClientCest
             'login' => 'empl_1',
             'sub' => '123',
             'tenant' => 'uuid',
-            'scope' => $scope
+            'scope' => $scope,
         ]);
 
         $requestBody = json_encode($userData);
@@ -237,9 +236,9 @@ class AuthClientCest
     public function testLoginUser(UnitTester $I)
     {
         $userData = [
-            "password" => "Password1",
-            "login" => "empl_1",
-            "deviceId" => "123",
+            'password' => 'Password1',
+            'login' => 'empl_1',
+            'deviceId' => '123',
         ];
         $responseBody = '{
                 "accessToken": "token_123"
@@ -251,7 +250,7 @@ class AuthClientCest
         $I->assertEquals('token_123', $this->authClient->loginUser($userData, 'jwt_token'));
 
         /**
-         * @var $request Request
+         * @var Request
          */
         $request = $this->getLastRequest();
         $this->assertRequest($request, 'POST', '/auth', $requestBody, $I);
@@ -260,9 +259,9 @@ class AuthClientCest
     public function testLoginUserWith400Response(UnitTester $I)
     {
         $userData = [
-            "password" => "Password1",
-            "login" => "empl_1",
-            "deviceId" => "123",
+            'password' => 'Password1',
+            'login' => 'empl_1',
+            'deviceId' => '123',
         ];
         $responseBody = '{
                 "error": "some error"
@@ -278,9 +277,9 @@ class AuthClientCest
     public function testLoginUserWith500Response(UnitTester $I)
     {
         $userData = [
-            "password" => "Password1",
-            "login" => "empl_1",
-            "deviceId" => "123",
+            'password' => 'Password1',
+            'login' => 'empl_1',
+            'deviceId' => '123',
         ];
         $responseBody = '{
                 "error": "some error"
@@ -296,9 +295,9 @@ class AuthClientCest
     public function testLoginUserWithEmptyResponse(UnitTester $I)
     {
         $userData = [
-            "password" => "Password1",
-            "login" => "empl_1",
-            "deviceId" => "123",
+            'password' => 'Password1',
+            'login' => 'empl_1',
+            'deviceId' => '123',
         ];
         $responseBody = json_encode([]);
         $requestBody = json_encode($userData);
@@ -316,9 +315,9 @@ class AuthClientCest
     public function testVerifyUserToken(UnitTester $I)
     {
         $scope = json_encode([
-            "admin",
-            "writer",
-            "root"
+            'admin',
+            'writer',
+            'root',
         ]);
 
         $responseBody = json_encode([
@@ -331,11 +330,11 @@ class AuthClientCest
                 'sub' => '123',
                 'aud' => 'jincor.com',
                 'exp' => 1506287553051,
-                'scope' => $scope
-            ]
+                'scope' => $scope,
+            ],
         ]);
         $requestBody = json_encode([
-            'token' => 'token_123'
+            'token' => 'token_123',
         ]);
 
         $this->addResponseToHandler($responseBody);
@@ -361,7 +360,7 @@ class AuthClientCest
     {
         $responseBody = json_encode([]);
         $requestBody = json_encode([
-            'token' => 'token_123'
+            'token' => 'token_123',
         ]);
 
         $this->addResponseToHandler($responseBody);
@@ -381,7 +380,7 @@ class AuthClientCest
                 "result": 1
             }';
         $requestBody = json_encode([
-            'token' => 'token_123'
+            'token' => 'token_123',
         ]);
 
         $this->addResponseToHandler($responseBody);
@@ -435,7 +434,7 @@ class AuthClientCest
     {
         $this->mockHandler->append(
             new Response(200, [
-                'Content-Type' => 'application/json; charset=utf-8'
+                'Content-Type' => 'application/json; charset=utf-8',
             ], $responseBody)
         );
     }
@@ -444,7 +443,7 @@ class AuthClientCest
     {
         $this->mockHandler->append(
             new Response(400, [
-                'Content-Type' => 'application/json; charset=utf-8'
+                'Content-Type' => 'application/json; charset=utf-8',
             ], $responseBody)
         );
     }
@@ -453,7 +452,7 @@ class AuthClientCest
     {
         $this->mockHandler->append(
             new Response(500, [
-                'Content-Type' => 'application/json; charset=utf-8'
+                'Content-Type' => 'application/json; charset=utf-8',
             ], $responseBody)
         );
     }

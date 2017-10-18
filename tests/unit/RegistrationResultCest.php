@@ -1,7 +1,7 @@
 <?php
 
-use JincorTech\AuthClient\TenantRegistrationResult;
 use JincorTech\AuthClient\UserRegistrationResult;
+use JincorTech\AuthClient\TenantRegistrationResult;
 
 class RegistrationResultCest
 {
@@ -18,7 +18,7 @@ class RegistrationResultCest
         $params = [
             'id' => '123',
             'email' => 'test@test.com',
-            'login' => 'test_login'
+            'login' => 'test_login',
         ];
 
         $userRegistrationResult = new TenantRegistrationResult($params);
@@ -33,7 +33,7 @@ class RegistrationResultCest
         $params = [
             'id' => '123',
             'email' => 'test@test.com',
-            'login' => 'test_login'
+            'login' => 'test_login',
         ];
 
         $checkList = [
@@ -63,8 +63,8 @@ class RegistrationResultCest
                 'create' => true,
                 'read' => true,
                 'update' => true,
-                'delete' => false
-            ]
+                'delete' => false,
+            ],
         ]);
 
         $params = [
@@ -73,7 +73,7 @@ class RegistrationResultCest
             'login' => 'test_login',
             'tenant' => 'tenant-id',
             'sub' => 'sub-id',
-            'scope' => $scope
+            'scope' => $scope,
         ];
 
         $userRegistrationResult = new UserRegistrationResult($params);
@@ -113,8 +113,8 @@ class RegistrationResultCest
                 'create' => true,
                 'read' => true,
                 'update' => true,
-                'delete' => false
-            ]
+                'delete' => false,
+            ],
         ]);
 
         $params = [
@@ -123,7 +123,7 @@ class RegistrationResultCest
             'login' => 'test_login',
             'tenant' => 'tenant-id',
             'sub' => 'sub-id',
-            'scope' => $scope
+            'scope' => $scope,
         ];
 
         $checkList = [
