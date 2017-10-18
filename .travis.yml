@@ -13,7 +13,3 @@ before_install:
 script:
   - docker-compose run --rm workspace bash -c "composer install"
   - docker-compose run --rm workspace bash -c "./vendor/bin/codecept run --coverage-xml"
-
-after_scrript:
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover tests/_output/coverage.xml
